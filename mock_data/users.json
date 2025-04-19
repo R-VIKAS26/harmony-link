@@ -1,0 +1,5 @@
+[
+  { "id": 1, "mood": "happy", "genre": "pop" },
+  { "id": 2, "mood": "sad", "genre": "rock" },
+  { "id": 3, "mood": "energetic", "genre": "edm" }
+]
