@@ -14,15 +14,23 @@ const ChatbotUI = () => {
     setLoading(true);
 
     try {
-      const res = await axios.get("http://localhost:3000/recommend");
+      // Use your actual Render backend URL here
+      const res = await axios.get(
+        `https://harmony-link-backend.onrender.com/recommend`,
+        {
+          params: { message: input }, // assuming you want to pass the user input to backend
+        }
+      );
+
       const botMsg = {
         text:
-          res.data.recommendations.map((r) => r.name).join(", ") ||
+          res.data.recommendations?.map((r) => r.name).join(", ") ||
           "No songs found",
         sender: "bot",
       };
       setMessages((prev) => [...prev, botMsg]);
     } catch (err) {
+      console.error("Fetch error:", err.message);
       setMessages((prev) => [
         ...prev,
         { text: "Error fetching recommendations.", sender: "bot" },
