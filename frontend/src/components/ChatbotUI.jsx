@@ -21,7 +21,6 @@ const ChatbotUI = () => {
           params: { message: input }, // assuming you want to pass the user input to backend
         }
       );
-
       const botMsg = {
         text:
           res.data.recommendations?.map((r) => r.name).join(", ") ||
